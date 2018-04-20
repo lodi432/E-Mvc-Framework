@@ -13,8 +13,9 @@ class Model {
   protected function _setTableColumns(){
     $columns = $this->get_columns();
     foreach($columns as $column) {
+      $columnName = $column->Field;
       $this->_columnNames[] = $column->Field;
-      $this->{$columName} = null;
+      $this->{$columnName} = null;
     }
   }
 
@@ -37,7 +38,9 @@ public function find($params = []){
  public function findFirst($params = []){
    $resultQuery = $this->_db->findFirst($this->_table,$params);
    $result = new $this->_modelName($this->_table);
-   $result->populateObjData($resultQuery);
+   if($resultQuery) {
+     $result->populateObjData($resultQuery);
+   }
    return $result;
 
  }
@@ -84,7 +87,7 @@ public function find($params = []){
 
  public function data() {
    $data = new stdClass();
-   foreach ($this->columnNames as $column) {
+   foreach ($this->_columnNames as $column) {
      $data ->column = $this -> column;
    }
    return $data;

@@ -7,15 +7,16 @@
     <title><?=$this->siteTitle();?></title>
     <link rel="stylesheet" href="<?=PUTANJA?>css/foundation.css">
     <link rel="stylesheet" href="<?=PUTANJA?>css/app.css">
+    <script src="<?=PUTANJA?>js/vendor/jquery.js"></script>
+    <script src="<?=PUTANJA?>js/vendor/what-input.js"></script>
+    <script src="<?=PUTANJA?>js/vendor/foundation.js"></script>
+    <script src="<?=PUTANJA?>js/app.js"></script>
     <?=$this->content ('head'); ?>
   </head>
   <body>
     <?= $this->content('body');?>
 
 
-    <script src="<?=PUTANJA?>js/vendor/jquery.js"></script>
-    <script src="<?=PUTANJA?>js/vendor/what-input.js"></script>
-    <script src="<?=PUTANJA?>js/vendor/foundation.js"></script>
-    <script src="<?=PUTANJA?>js/app.js"></script>
+
   </body>
 </html>

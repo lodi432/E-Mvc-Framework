@@ -3,13 +3,16 @@
 <?php $this->start('body'); ?>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
 
-<form class="form-control" action= "<?=PUTANJA?>register/login" method="post">
+<form  class="form-control" action= "<?=PUTANJA?>register/login" method="post">
 
+
+    <span class="[success alert secondary] [round radius] label float-center text-center"><?=$this->displayErrors ?></span>
 
   <div class="form-icons">
+
     <h4>Login</h4>
 
-    <div class="input-group">
+    <div class="input-group ">
       <span class="input-group-label">
         <i class="fa fa-user"></i>
       </span>
@@ -39,6 +42,7 @@
  <input type="submit" value="Login" class="button expanded">
  Not a member?
   <a href="<?=PUTANJA?>register/register" >Sign Up</a>
+
 </form>
 
 
