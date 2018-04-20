@@ -31,3 +31,11 @@ form .form-icons .fa {
   color: white;
   width: 1rem;
 }
+.log-in-form {
+  border: 1px solid #cacaca;
+  border-radius:15px;
+  box-shadow: 7px 7px 15px rgba(0,0,0,0.6);
+  padding: 1rem;
+  border-radius: 0;
+
+}

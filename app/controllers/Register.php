@@ -1,14 +1,14 @@
 <?php
 
 class Register extends Controller {
-  public function __construct($controller, $action){
+  public function __construct($controller, $action) {
     parent::__construct($controller,$action);
     $this->load_model('Users');
     $this->view->setLayout('default');
 
   }
 
-  public function loginAction(){
+  public function loginAction() {
     $validation = new Validate();
     if ($_POST){
       //form validation
@@ -25,7 +25,7 @@ class Register extends Controller {
       ]);
       if($validation->passed()){
         $user = $this->UsersModel->findByUsername($_POST['username']);
-      if($user && password_verify(Input::get('password'), $user->password)){
+      if($user && password_verify(Input::get('password'), $user->password)) {
         $remember = (isset($_POST['remember_me']) && Input::get('remember_me')) ? true : false;
         $user->login($remember);
         Router::redirect('');
@@ -38,12 +38,25 @@ class Register extends Controller {
     $this->view->render('register/login');
   }
 
-  public function logoutAction(){
-    // dnd(currentUser());
+  public function logoutAction() {
     if(currentUser()) {
       currentUser()->logout();
 
     }
     Router::redirect('register/login');
+  }
+
+  public function registerAction() {
+      $validation = new Validate();
+      $posted_values = ['fname' =>'', 'lname'=>'','username'=>'','email'=>'','password'=>'','confirm'=>''];
+      if($_POST){
+      $posted_values = posted_values($_POST);
+
+      }
+
+      $this->view->post=$posted_values;
+      $this->view->displayErrors = $validation->displayErrors();
+      $this->view->render('register/register');
+
   }
 }
