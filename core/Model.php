@@ -64,7 +64,7 @@ public function find($params = []){
 
  public function insert($fields) {
    if(empty($fields)) return false;
-   return $this->_db->insert($this->table, $fields);
+   return $this->_db->insert($this->_table, $fields);
  }
 
  public function update ($id,$fields){
