@@ -10,3 +10,7 @@
 function sanitize ($diry) {
   return htmlentities($dirty, ENT_QUOTES, 'UTF-8');
 }
+
+function currentUser(){
+  return Users::currentLoggedInUser();
+}

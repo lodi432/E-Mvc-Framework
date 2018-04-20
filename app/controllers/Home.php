@@ -5,6 +5,7 @@ class Home extends Controller {
     parent::__construct($controller, $action);
   }
   public function indexAction(){
+    // dnd($_SESSION);
     $this->view->render('home/index');
   }
 }

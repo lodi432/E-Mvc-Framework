@@ -37,4 +37,13 @@ class Register extends Controller {
     $this->view->displayErrors = $validation->displayErrors();
     $this->view->render('register/login');
   }
+
+  public function logoutAction(){
+    // dnd(currentUser());
+    if(currentUser()) {
+      currentUser()->logout();
+
+    }
+    Router::redirect('register/login');
+  }
 }
